@@ -1,8 +1,14 @@
 
 //todo api call GetConnect 사용
+import 'package:get/get.dart';
 import 'package:getx_pattern/data/model/ex_model.dart';
 
-class ExProvider implements AbsProvider {
+class ExProvider extends GetConnect implements AbsProvider {
+  // Get request
+  Future<Response> getUser(int id) => get('http://youapi/users/$id');
+  // Post request
+  Future<Response> postUser(Map data) => post('http://youapi/users', data);
+
   @override
   Future create() async {
     try {
@@ -13,7 +19,7 @@ class ExProvider implements AbsProvider {
   }
 
   @override
-  Future delete() async {
+  Future delete2() async {
     try {
       return await Future.delayed(Duration(milliseconds: 1000)).then((value) => value);
     } catch (e) {
@@ -44,7 +50,6 @@ class ExProvider implements AbsProvider {
   }
 }
 
-
 abstract class AbsProvider {
   Future create();
 
@@ -52,5 +57,5 @@ abstract class AbsProvider {
 
   Future update();
 
-  Future delete();
+  Future delete2();
 }

@@ -10,7 +10,7 @@ class ExRepository {
 
   Future get updateData => _exProvider.update();
 
-  Future get deleteData => _exProvider.delete();
+  Future get deleteData => _exProvider.delete2();
 
 
 //todo ~~ 필요한 api 연결 및 데이터 가공
