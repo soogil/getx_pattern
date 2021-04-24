@@ -1,14 +1,14 @@
 
 
 class ExModel {
-  ExModel({required this.id, required this.title, required this.body});
+  ExModel({this.id, this.title, this.body});
 
   factory ExModel.fromJson(Map<String, dynamic> json) =>
       ExModel(id: json['id'], title: json['title'], body: json['body']);
 
-  final String id;
-  final String title;
-  final String body;
+  final String? id;
+  final String? title;
+  final String? body;
 
   Map<String, dynamic> toJson() => {
     'id': this.id,

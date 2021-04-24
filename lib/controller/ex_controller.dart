@@ -5,26 +5,20 @@ import 'package:getx_pattern/data/repository/ex_repository.dart';
 class ExController extends GetxController {
   final ExRepository _exRepository = ExRepository();
 
-  late ExModel _item;
+  var _exModel = ExModel().obs;
+  var counter = 0.obs;
 
   @override
   void onInit() async {
-    print('onInit ${_item.title}');
+    // print('onInit ${_item.value.title}');
+    _exModel.value = await _exRepository.readData;
 
     super.onInit();
   }
 
-  var counter = 0.obs;
-
   void increment() => counter.value++;
 
-  change() {
-    update();
-  }
-
-  Future get data async => await _exRepository.readData;
-
-  String get id => _item.id;
-  String get title => _item.title;
-  String get body => _item.body;
+  String get id => _exModel.value.id ?? '';
+  String get title => _exModel.value.title ?? '';
+  String get body => _exModel.value.body ?? '';
 }

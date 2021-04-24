@@ -1,7 +1,5 @@
 
-
-
-//todo api call
+//todo api call GetConnect 사용
 import 'package:getx_pattern/data/model/ex_model.dart';
 
 class ExProvider implements AbsProvider {
