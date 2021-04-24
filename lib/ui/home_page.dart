@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_pattern/controller/ex_controller.dart';
 
-class HomePage extends GetView {
-
-  final ExController controller = Get.put(ExController());
+class HomePage extends GetView<ExController> {
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +17,8 @@ class HomePage extends GetView {
   }
 
   Widget _buildBody() {
+    // ExController.to.body 로 접근 가능
+
     return Obx(
       () => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
